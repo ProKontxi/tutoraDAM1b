@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Información DAM</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+      color: #fff;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    /* Menú fijo */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      padding: 10px;
+      text-align: center;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    nav a:hover {
+      color: #ffcc00;
+    }
+
+    /* Imagen QR */
+    .qr-container {
+      margin-top: 60px;
+      text-align: center;
+    }
+
+    .qr-container img {
+      width: 150px;
+      height: auto;
+      margin: 20px 0;
+    }
+
+    header {
+      padding: 20px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+    }
+
+    section {
+      padding: 30px 20px;
+      background: rgba(0,0,0,0.2);
+      margin: 20px auto;
+      border-radius: 12px;
+      max-width: 800px;
+      text-align: left;
+    }
+
+    section h2 {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+
+    /* Estilos del acordeón */
+    .acordeon-btn {
+      width: 100%;
+      background: #ffcc00;
+      color: #000;
+      padding: 12px;
+      text-align: left;
+      border: none;
+      border-radius: 8px;
+      margin: 5px 0;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .acordeon-btn:hover {
+      transform: scale(1.05);
+      background: #ffaa00;
+    }
+
+    .acordeon-contenido {
+      display: none;
+      background: rgba(255,255,255,0.9);
+      color: #000;
+      padding: 15px 20px;
+      border-radius: 0 0 8px 8px;
+      margin-bottom: 10px;
+    }
+
+    .acordeon-contenido ul {
+      padding-left: 20px;
+      list-style: none;
+    }
+
+    .acordeon-contenido li {
+      margin: 8px 0;
+    }
+
+    .volver {
+      display: inline-block;
+      margin: 20px 0;
+      padding: 12px 24px;
+      background: #ffcc00;
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: 0.2s;
+    }
+
+    .volver:hover {
+      background: #ffaa00;
+      transform: scale(1.05);
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 20px;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Menú de navegación -->
+  <nav style="position:fixed; top:0; left:0; width:100%; background: rgba(0,0,0,0.6); color:white; padding:10px; text-align:center; z-index:1000;">
+    <a href="index.html" style="color:white; margin:0 15px; text-decoration:none; font-weight:bold;">Inicio</a>
+    <a href="informacion.html" style="color:white; margin:0 15px; text-decoration:none; font-weight:bold;">Información</a>
+  </nav>
+
+  <header style="margin-top:60px;">
+    <h1>💻 Desarrollo de Aplicaciones Multiplataforma</h1>
+    <p>Información de inicio de curso</p>
+  </header>
+
+  <!-- Documentos -->
+  <section id="documentos">
+    <h2>📂 Documentos y Guía del Estudiante</h2>
+
+    <div class="acordeon">
+
+      <button class="acordeon-btn">Para el Estudiante</button>
+            <div class="acordeon-contenido">
+            <ul>
+              <li>📄 <a href="https://docs.google.com/document/d/1aQkW-MwHdmoIZkzdSCpm5j4LX5KLcHbSxtU4GEci52Y/edit?usp=sharing" target="_blank">Guía del estudiante (Google Docs)</a></li>
+              <li>📄 <a href="https://docs.google.com/document/d/1mySS7LRXlTeOxe47_UsCmiMEWQzmCZxzc4hlfPvVcO8/edit?tab=t.0" target="_blank">Plan de Convivencia (Google Docs)</a></li>
+            </ul>
+      </div>
+
+      <button class="acordeon-btn">Información del Ciclo</button>
+      <div class="acordeon-contenido">
+        <ul>
+          <li></li>
+          <li>🕒 <a href="https://www.mariaanasanz.es/estudiantes/calendario-y-horario-escolar/" target="_blank">Calendario y Horario escolar</li></a>
+          <li>📚 <a href="https://docs.google.com/document/d/e/2PACX-1vTskCVbW74IUtCAk9sT2I0G43LpkCfvueSfW0xlBabc3TxrLgyZ9BrxfR5S6sFI6lUCNdchXA_WIoQc/pub" target="_blank">Información del Ciclo</li></a>
+          <li>📑 <a href="https://docs.google.com/document/d/1KF1LjbvG1Owzc9W1ygGSA7um59xgUhzlEM99cTxkIe0/edit?usp=sharing" target="_blank">Hoja de Presentación del Módulo SIIN DAM1 (MD020216)</a></strong></li>
+          <li>📊 <a href="https://educages.navarra.es/acceso/logout?service=logout" target="_blank">Programa EDUCA (faltas, boletines, etc.)</a></li>
+        </ul>
+      </div>
+
+      <button class="acordeon-btn">Encuestas y Formularios a CUMPLIMENTAR hoy 9 de septiembre de 2.025</button>
+      <div class="acordeon-contenido">
+        <ul>
+          <strong>📝 <a href="https://forms.gle/xYtU2r9He9AZha1v9" target="_blank">Encuesta de satisfacción (alumnado nuevo)</a></strong>
+          <li>📋 <a href="https://docs.google.com/document/d/1Qlj2QIx6JXb62EjHe78kMLKhtsuPDi7n/edit?usp=sharing&ouid=114403483307079259835&rtpof=true&sd=true" target="_blank">Ficha individual del alumnado (MD020517)</a></li>
+        </ul>
+      </div>
+
+      <button class="acordeon-btn">Presentación y Normas</button>
+      <div class="acordeon-contenido">
+        <ul>
+          <li>🙋 <a href="https://docs.google.com/spreadsheets/d/1znAGh0Q2rXvjF7roOyekW74cGTQwMFK3wJNwIuLD3Ko/edit?usp=sharing" target="_blank">Presentación del tutor/a y del alumnado</a></li>
+          <li>📜 <a href="https://docs.google.com/document/d/1mySS7LRXlTeOxe47_UsCmiMEWQzmCZxzc4hlfPvVcO8/edit?tab=t.0" target="_blank">Normas de convivencia (Google Docs)</a></li>
+                <li style="margin-left: 20px;">🔒 Normas de uso del móvil en el aula</li>
+          <li><a href="https://www.mariaanasanz.es" target="_blank">🌐 Página web del Instituto</a></li>
+                 <li style="margin-left: 20px;">🏫 Servicios del instituto</li>
+                 <li style="margin-left: 20px;">📚 Organización y funcionamiento</li>
+        </ul>
+      </div>
+
+    <button class="acordeon-btn">Convalidaciones</button>
+    <div class="acordeon-contenido">
+        <p><em>Información al alumnado del proceso de convalidación y reconocimiento.</em></p>
+        <ul style="margin-left: 20px;">
+            <li>En la convalidación la calificación del módulo convalidado será de 5.</li>
+            <li>En el reconocimiento la calificación del módulo convalidado será la de origen.</li>
+        </ul>
+        <p>Se informa al alumnado de la normativa que rige la convalidación y reconocimiento: 
+            <a href="https://www.lexnavarra.navarra.es/detalle.asp?r=51451#Ar.25" target="_blank">Orden Foral OF 21/2019 Art. 25</a>.
+        </p>
+        <p>Para que un módulo se considere reconocido debe ser exactamente el mismo (debe tener el mismo código).</p>
+        <p>Se proporcionará al alumnado el documento <strong><a href="https://docs.google.com/document/d/1MvLt6p0KTz1q96Hw2WmWT3Zk-TG-wV2EB4o3fszaPgA/edit?tab=t.0" target="_blank">SOLICITUD DE CONVALIDACIÓN Y/O RECONOCIMIENTO DE MÓDULOS (MD010332)</a></strong> y recogerá la solicitud rellenada. El tutor/a será el responsable de entregar la documentación una vez recogidas todas las solicitudes en secretaría.</p>
+        <p style="color:red;">Es importante señalar al alumnado que deben asistir a los módulos cuya convalidación/reconocimiento han solicitado hasta que se confirme su aceptación.</p>
+        <p style="color:red;">No obstante, una vez confirmada la convalidación/reconocimiento, el personal tutor procederá a justificar todas las ausencias que el alumnado tuviera en ese módulo.</p>
+    </div>
+
+    <button class="acordeon-btn">Vulnerabilidad Económica</button>
+        <div class="acordeon-contenido">
+        <p>El Departamento de Educación nos solicita actualizar la información del alumnado en situación de vulnerabilidad socioeconómica, requisito imprescindible para poder optar a las ayudas (material escolar, equipamiento informático, conectividad, etc.).</p>
+        <p>Quienes deseen solicitar estas ayudas deberán:</p>
+
+        <ol style="margin-left: 20px;">
+            <li>Rellenar el formulario disponible en la web del centro: <a href="#" target="_blank">Formulario de vulnerabilidad socioeducativa</a></li>
+            <li>Aportar documentación acreditativa (informe de Servicios Sociales, resolución de Renta Garantizada o, en su defecto, la Declaración de la Renta 2024).</li>
+            <li>Indicar en el formulario la necesidad concreta (ejemplo: préstamo de ordenador, compra de libro con título e ISBN, etc.).</li>
+        </ol>
+    </div>
+
+      <button class="acordeon-btn">Recursos Digitales</button>
+      <div class="acordeon-contenido">
+        <p>Para entrar en <a href="https://moodle.mariaanasanz.es" target="_blank">Moodle</a>, se facilitarán a cada alumno/a sus usuarios y contraseñas (normalmente el correo de EDUCA y una contraseña genérica, que deberá cambiarse en el primer acceso).</p>
+        <p>Todo el alumnado podrá instalar Office en su ordenador personal de forma gratuita mientras sea estudiante del CI María Ana Sanz.</p>
+
+        <ul>
+          <li>💾 USB </li>
+          <li>🔑 Usuario y contraseña <a href="https://educa.navarra.es" target="_blank">EDUCA</a></li>
+          <li>📥 Acceso a <a href="https://moodle.mariaanasanz.es" target="_blank">Moodle</a></li>
+          <li>💻 <a href="https://drive.google.com/file/d/1GdzVrN2dnT8UjmDgS--26nw4H8O_8LFn/view?usp=drive_link" target="_blank">Office gratuito para estudiantes</a>
+      </div>
+
+    </div>
+
+    <a href="index.html" class="volver">⬅️ Volver a la presentación</a>
+  </section>
+
+  <footer>
+    <p>📌 CI María Ana Sanz - DAM | Curso 2025</p>
+  </footer>
+
+  <script>
+    // Script para acordeón
+    document.querySelectorAll(".acordeon-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const contenido = btn.nextElementSibling;
+        contenido.style.display = contenido.style.display === "block" ? "none" : "block";
+      });
+    });
+  </script>
+</body>
+</html>
+

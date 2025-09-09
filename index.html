@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación DAM</title>
+    <style>
+        body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+        color: #fff;
+        text-align: center;
+        overflow-x: hidden;
+        }
+
+        header {
+        padding: 60px 20px;
+        animation: fadeIn 2s ease-in-out;
+        }
+
+        header h1 {
+        font-size: 3rem;
+        margin-bottom: 10px;
+        }
+
+        header p {
+        font-size: 1.2rem;
+        }
+
+        section {
+        padding: 40px 20px;
+        background: rgba(0, 0, 0, 0.2);
+        margin: 20px auto;
+        border-radius: 12px;
+        max-width: 800px;
+        }
+
+        button, a.enlace {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 12px 24px;
+        background: #ffcc00;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: transform 0.2s;
+        text-decoration: none;
+        color: #000;
+        }
+
+        button:hover, a.enlace:hover {
+        transform: scale(1.1);
+        background: #ffaa00;
+        }
+
+        footer {
+        margin-top: 40px;
+        padding: 20px;
+        font-size: 0.9rem;
+        opacity: 0.8;
+        }
+
+        @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+    </head>
+        <body>
+        <!-- Menú de navegación -->
+        <nav style="position:fixed; top:0; left:0; width:100%; background: rgba(0,0,0,0.6); color:white; padding:10px; text-align:center; z-index:1000;">
+            <a href="index.html" style="color:white; margin:0 15px; text-decoration:none; font-weight:bold;">Inicio</a>
+            <a href="informacion.html" style="color:white; margin:0 15px; text-decoration:none; font-weight:bold;">Información</a>
+        </nav>
+
+        <header>
+            <h1>Bienvenid@s al ciclo DAM</h1>
+            <p>Desarrollo de Aplicaciones Multiplataforma</p>
+        </header>
+
+        <section>
+            <h2>¿Qué aprenderás aquí?</h2>
+            <p>
+            En este ciclo vas a descubrir cómo crear aplicaciones modernas para web,
+            dispositivos móviles y escritorio.  
+            Aprenderás lenguajes como Java, JavaScript, SQL, y usarás herramientas
+            profesionales que te abrirán puertas en el mundo laboral.
+            </p>
+        </section>
+
+        <section>
+            <h2>Ejemplo interactivo</h2>
+            <p>Pulsa el botón y recibe un mensaje motivador 🎯</p>
+            <button onclick="mostrarMensaje()">Dame motivación</button>
+            <p id="mensaje" style="margin-top:20px; font-size:1.2rem; font-weight:bold;"></p>
+        </section>
+
+        <section>
+            <h2>Más información</h2>
+            <p>Accede a la guía de inicio de curso con toda la información necesaria:</p>
+            <a href="informacion.html" class="enlace">Ir a la información 📂</a>
+        </section>
+
+        <footer>
+            © 2025 - Presentación tutora DAM1b - Email de tutoría <a href="mailto:csanchemal1@educacion.navarra.es">csanchemal1@educacion.navarra.es</a>
+
+        </footer>
+
+            <script>
+                function mostrarMensaje() {
+                const mensajes = [
+                    "¡Hoy es un gran día para programar!",
+                    "Cada error es un paso más hacia el éxito 🚀",
+                    "Tu futuro como desarrollador empieza aquí 💻",
+                    "El mejor código es el que aún está por escribir ✨",
+                    "¡Confía en ti! Lo que hoy parece difícil mañana será rutina 🔥"
+                ];
+                const random = Math.floor(Math.random() * mensajes.length);
+                document.getElementById("mensaje").textContent = mensajes[random];
+                }
+            </script>
+        </body>
+
+</html>
+

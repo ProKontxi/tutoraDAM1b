@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Presentación DAM — Desarrollo de Aplicaciones Multiplataforma</title>
+  <meta name="description" content="Ciclo Formativo de Grado Superior: Desarrollo de Aplicaciones Multiplataforma (DAM). Información general, competencias, módulos, salidas profesionales y convalidaciones." />
+
+  <style>
+    :root{
+      --bg1: #3a7bd5;
+      --bg2: #00d2ff;
+      --card-bg: rgba(0,0,0,0.22);
+      --accent: #ffcc00;
+      --accent-2: #ffaa00;
+      --text: #fff;
+      --max-width: 1100px;
+      --radius: 12px;
+      --glass: rgba(255,255,255,0.04);
+    }
+
+    *{box-sizing: border-box;}
+
+    body{
+      margin:0;
+      font-family: "Segoe UI", Tahoma, system-ui, -apple-system, Roboto, "Helvetica Neue", Arial;
+      color:var(--text);
+      background: linear-gradient(135deg, var(--bg1), var(--bg2));
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      min-height:100vh;
+      padding-top:68px; /* espacio para nav fija */
+    }
+
+    /* Navegación fija */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      padding: 10px 16px;
+      z-index: 1000;
+      display:flex;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
+
+    nav .nav-inner {
+      width: 100%;
+      max-width: var(--max-width);
+      display:flex;
+      gap:16px;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    nav .logo {
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:700;
+      font-size:1.05rem;
+    }
+    nav .logo svg { width:36px; height:36px; }
+
+    nav .links {
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    nav a {
+      color: #fff;
+      margin:0 8px;
+      text-decoration:none;
+      padding:8px 12px;
+      border-radius:8px;
+      font-weight:600;
+      opacity:0.95;
+    }
+    nav a:hover { background: rgba(255,255,255,0.08); transform:translateY(-1px); }
+
+    header {
+      padding: 56px 20px 36px;
+      text-align:center;
+      animation: fadeIn 800ms ease-in-out;
+      max-width:var(--max-width);
+      margin: 0 auto;
+    }
+    header h1 {
+      font-size:2.6rem;
+      margin:0 0 8px;
+      letter-spacing: -0.5px;
+    }
+    header p { margin:0; font-size:1.1rem; opacity:0.95; }
+
+    main {
+      max-width: var(--max-width);
+      margin: 22px auto;
+      padding: 0 16px 56px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 22px;
+      margin: 18px 0;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+      backdrop-filter: blur(6px);
+    }
+
+    h2 {
+      margin-top:0;
+      font-size:1.4rem;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    p.lead { font-size:1rem; opacity:0.95; }
+
+    ul, ol { text-align:left; margin:10px 0 10px 22px; }
+
+    .grid-2 {
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+    }
+
+    table {
+      width:100%;
+      border-collapse:collapse;
+      margin-top:10px;
+      font-size:0.95rem;
+      background: rgba(255,255,255,0.03);
+      border-radius:8px;
+      overflow:hidden;
+    }
+    table thead {
+      background: rgba(0,0,0,0.25);
+      font-weight:700;
+    }
+    table th, table td {
+      padding:10px 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      text-align:left;
+    }
+    table tr:last-child td { border-bottom: none; }
+
+    .btn, a.enlace {
+      display:inline-block;
+      margin-top:14px;
+      padding:12px 18px;
+      background: var(--accent);
+      border:none;
+      border-radius:10px;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      transition: transform 0.15s ease, background 0.15s;
+      color:#000;
+      text-decoration:none;
+    }
+    .btn:hover, a.enlace:hover { transform:translateY(-3px); background: var(--accent-2); }
+
+    footer {
+      margin-top:28px;
+      padding:18px 12px;
+      text-align:center;
+      color: rgba(255,255,255,0.9);
+      font-size:0.95rem;
+      opacity:0.95;
+    }
+    footer a { color: #fff; text-decoration:underline; font-weight:600; }
+
+    /* Responsive */
+    @media (max-width:820px){
+      .grid-2 { grid-template-columns: 1fr; }
+      header h1 { font-size:2rem; }
+      nav .nav-inner { padding:0 8px; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity:0; transform: translateY(-18px); }
+      to { opacity:1; transform: translateY(0); }
+    }
+
+    /* pequeño badge informativo */
+    .badge {
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      background:var(--glass);
+      font-weight:700;
+      font-size:0.85rem;
+      border:1px solid rgba(255,255,255,0.06);
+    }
+
+    /* accesibilidad: focus visible */
+    a:focus, button:focus { outline: 3px solid rgba(255,204,0,0.45); outline-offset:3px; }
+
+/* Estilo general del menú */
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #1e1e2f; /* Azul oscuro elegante */
+  z-index: 1000;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+}
+
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.menu ul li {
+  position: relative;
+}
+
+.menu a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 16px;
+  border-radius: 6px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.menu a:hover {
+  background: #ffcc00;
+  color: #000;
+}
+
+/* Submenú */
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #ffffff; /* Fondo claro */
+  min-width: 200px;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  padding: 8px 0;
+}
+
+.submenu li {
+  width: 100%;
+}
+
+.submenu a {
+  color: #333;
+  font-weight: normal;
+  padding: 10px 16px;
+  display: block;
+}
+
+.submenu a:hover {
+  background: #f4f4f4;
+  color: #000;
+  border-radius: 0;
+}
+
+/* Mostrar submenú al pasar el puntero */
+.menu li:hover .submenu {
+  display: block;
+}
+  </style>
+</head>
+<body>
+<!-- Menú de navegación -->
+<nav class="menu">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="informacion.html">Información</a></li>
+    <li>
+      <a href="#">Ciclo ▾</a>
+      <ul class="submenu">
+        <li><a href="#arriba">Arriba</a></li>
+        <li><a href="#info-general">Información</a></li>
+        <li><a href="#competencias">Competencias</a></li>
+        <li><a href="#modulos">Módulos</a></li>
+        <li><a href="#convalidaciones">Convalidaciones</a></li>
+        <li><a href="#mas-info">Más info</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+  <header id="inicio" role="banner">
+    <h1>Bienvenid@s al ciclo <span class="badge">DAM</span></h1>
+    <p>Desarrollo de Aplicaciones Multiplataforma — Ciclo Formativo de Grado Superior</p>
+  </header>
+
+  <main>
+    <!-- Información General -->
+    <section id="info-general" class="card" aria-labelledby="h-info">
+      <h2 id="h-info">Información General</h2>
+      <div class="grid-2">
+        <div>
+          <p class="lead"><strong>Denominación:</strong> Desarrollo de Aplicaciones Multiplataforma (DAM).</p>
+          <p class="lead"><strong>Duración:</strong> 2000 horas.</p>
+          <p class="lead"><strong>Familia profesional:</strong> Informática y Comunicaciones.</p>
+        </div>
+        <div>
+          <p class="lead"><strong>Formación práctica:</strong></p>
+          <ul>
+            <li>Formación en Centros de Trabajo (F.C.T.) al finalizar la formación en el centro educativo, para completar la experiencia y realizar actividades propias de la profesión.</li>
+            <li>Posibilidades de prácticas en empresas tecnológicas, pymes y departamentos de I+D o desarrollo de software.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Competencias -->
+    <section id="competencias" class="card" aria-labelledby="h-competencias">
+      <h2 id="h-competencias">Competencias</h2>
+      <p>Al finalizar el ciclo, el alumnado será capaz de:</p>
+      <ul>
+        <li>Configurar y explotar sistemas informáticos, adaptando la configuración lógica del sistema según las necesidades de uso y los criterios establecidos.</li>
+        <li>Gestionar bases de datos, interpretando su diseño lógico y verificando integridad, consistencia, seguridad y accesibilidad de los datos.</li>
+        <li>Desarrollar aplicaciones multiplataforma con acceso a bases de datos utilizando lenguajes, librerías y herramientas adecuados a las especificaciones.</li>
+        <li>Desarrollar interfaces gráficos de usuario interactivos y con la usabilidad adecuada, empleando componentes visuales estándar o implementando componentes visuales específicos.</li>
+        <li>Desarrollar aplicaciones multiproceso y multihilo empleando librerías y técnicas de programación específicas.</li>
+        <li>Participar en la implantación de sistemas ERP-CRM evaluando la utilidad de cada uno de sus módulos.</li>
+        <li>Gestionar la información almacenada en sistemas ERP-CRM garantizando su integridad.</li>
+        <li>Desarrollar componentes personalizados para un sistema ERP-CRM atendiendo a los requerimientos.</li>
+      </ul>
+    </section>
+
+    <!-- Salidas Profesionales -->
+    <section id="salidas" class="card" aria-labelledby="h-salidas">
+      <h2 id="h-salidas">Salidas Profesionales</h2>
+      <p>Ocupaciones y puestos de trabajo más habituales:</p>
+      <ul>
+        <li>Desarrollador de aplicaciones informáticas para la gestión empresarial y de negocio.</li>
+        <li>Desarrollador de aplicaciones de propósito general.</li>
+        <li>Desarrollador en el ámbito del entretenimiento y la informática móvil.</li>
+        <li>Técnico de mantenimiento y configuración de aplicaciones empresariales.</li>
+        <li>Programador de servicios, procesos y componentes integrados en soluciones empresariales.</li>
+      </ul>
+    </section>
+
+    <!-- Módulos Profesionales -->
+    <section id="modulos" class="card" aria-labelledby="h-modulos">
+      <h2 id="h-modulos">Módulos Profesionales (Asignaturas)</h2>
+
+      <p>Lista de módulos incluidos en el ciclo:</p>
+      <ul>
+        <li>Sistemas informáticos.</li>
+        <li>Bases de Datos.</li>
+        <li>Programación.</li>
+        <li>Lenguajes de marcas y sistemas de gestión de información.</li>
+        <li>Entornos de desarrollo.</li>
+        <li>Acceso a datos.</li>
+        <li>Desarrollo de interfaces.</li>
+        <li>Programación multimedia y dispositivos móviles.</li>
+        <li>Programación de servicios y procesos.</li>
+        <li>Sistemas de gestión empresarial.</li>
+        <li>Proyecto de desarrollo de aplicaciones multiplataforma.</li>
+        <li>Empresa e iniciativa emprendedora.</li>
+        <li>Formación y orientación laboral.</li>
+      </ul>
+
+      <p><strong>Proyecto final:</strong> Elaboración de un proyecto integrador (Proyecto de desarrollo de aplicaciones multiplataforma) que demuestre competencias técnicas y de gestión del ciclo.</p>
+    </section>
+
+    <!-- Convalidaciones -->
+    <section id="convalidaciones" class="card" aria-labelledby="h-convalidaciones">
+      <h2 id="h-convalidaciones">Convalidaciones</h2>
+
+      <p>Relación de módulos LOGSE (DAI / ASI) y su correspondencia con DAM (LOE):</p>
+
+      <h3>Módulos de DAI (LOGSE) → Módulos de DAM (LOE)</h3>
+      <table aria-describedby="tabla-dai-dam">
+        <thead>
+          <tr>
+            <th>Módulos de DAI (LOGSE)</th>
+            <th>Módulos de DAM (LOE)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Sistemas informáticos multiusuario y en red.</td>
+            <td>Sistemas informáticos.</td>
+          </tr>
+          <tr>
+            <td>Desarrollo de aplicaciones en entornos de 4ª gen. y con herramientas CASE.</td>
+            <td>Bases de Datos.</td>
+          </tr>
+          <tr>
+            <td>Desarrollo de aplicaciones en entornos de 4ª gen. y con herramientas CASE.</td>
+            <td>Acceso a datos.</td>
+          </tr>
+          <tr>
+            <td>Programación en lenguajes estructurados.</td>
+            <td>Programación.</td>
+          </tr>
+          <tr>
+            <td>Análisis y diseño detallado de aplicaciones informáticas de gestión.</td>
+            <td>Entornos de desarrollo.</td>
+          </tr>
+          <tr>
+            <td>Diseño y realización de servicios de presentación en entornos gráficos.</td>
+            <td>Desarrollo de interfaces.</td>
+          </tr>
+          <tr>
+            <td>FCT del título de Técnico Superior en DAI.</td>
+            <td>Formación en Centros de Trabajo.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 style="margin-top:12px;">Módulos de ASI (LOGSE) → Módulos de DAM (LOE)</h3>
+      <table aria-describedby="tabla-asi-dam">
+        <thead>
+          <tr>
+            <th>Módulos de ASI (LOGSE)</th>
+            <th>Módulos de DAM (LOE)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Fundamentos de programación.</td>
+            <td>Lenguajes de marcas y sistemas de gestión de información.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><em>Nota:</em> Las convalidaciones pueden variar según la normativa autonómica y criterios de cada centro. Consultar con el departamento de enseñanzas profesionales o secretaría para confirmación oficial.</p>
+    </section>
+
+    <!-- Más información y normativas -->
+    <section id="mas-info" class="card" aria-labelledby="h-masinfo">
+      <h2 id="h-masinfo">Más información</h2>
+
+      <p>Recursos y referencias:</p>
+      <ul>
+        <li>Foros y comunidades sobre DAM (Foros DAM).</li>
+        <li>Este título equivale al título LOGSE: <strong>Técnico en Desarrollo de Aplicaciones Informáticas</strong>.</li>
+        <li>Normativa de referencia: <strong>Real Decreto 450/2010 de 16 de abril</strong> (BOE) y <strong>Orden EDU/2000/2010, de 13 de julio</strong>.</li>
+      </ul>
+
+      <p>Si necesitas documentación oficial o guías de inicio de curso, puedes solicitarla al equipo directivo o al departamento de informática del centro educativo.</p>
+
+      <a class="enlace" href="#contacto" role="button">Contacto y tutoría</a>
+    </section>
+
+    <!-- Contacto / pie -->
+    <section id="contacto" class="card" aria-labelledby="h-contacto">
+      <h2 id="h-contacto">Contacto</h2>
+      <p>Presentación tutora DAM1b — Información de contacto y tutoría:</p>
+      <p><strong>Email de tutoría:</strong> <a href="mailto:csanchemal1@educacion.navarra.es">csanchemal1@educacion.navarra.es</a></p>
+
+      <p style="margin-top:12px; font-size:0.95rem;">© <span id="ano"></span> — Material informativo para uso educativo. Revisar normativa oficial para referencias legales.</p>
+    </section>
+
+  </main>
+
+  <footer role="contentinfo">
+    <div>
+      <small>Referencia normativa: Real Decreto 450/2010 (16 de abril) — Orden EDU/2000/2010 (13 de julio).</small>
+      <div style="margin-top:8px;">Documento preparado para presentación del ciclo DAM — Adaptable a la guía del centro.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Fecha dinámica en el pie de contacto
+    document.getElementById('ano').textContent = new Date().getFullYear();
+
+    // Mensajes motivadores
+    function mostrarMensaje() {
+      const mensajes = [
+        "¡Hoy es un gran día para programar!",
+        "Cada error es un paso más hacia el éxito 🚀",
+        "Tu futuro como desarrollador empieza aquí 💻",
+        "El mejor código es el que aún está por escribir ✨",
+        "¡Confía en ti! Lo que hoy parece difícil mañana será rutina 🔥"
+      ];
+      const random = Math.floor(Math.random() * mensajes.length);
+      const nodo = document.getElementById("mensaje");
+      nodo.textContent = mensajes[random];
+      nodo.setAttribute('aria-live','polite');
+    }
+
+    // Smooth scroll para enlaces de navegación
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor){
+      anchor.addEventListener('click', function(e){
+        const targetId = this.getAttribute('href').slice(1);
+        const target = document.getElementById(targetId);
+        if(target){
+          e.preventDefault();
+          window.scrollTo({
+            top: target.getBoundingClientRect().top + window.pageYOffset - 66, // compensar nav fija
+            behavior: 'smooth'
+          });
+          // actualizar el hash sin salto inmediato
+          history.pushState(null, '', '#'+targetId);
+        }
+      });
+    });
+
+    // Mejoras de accesibilidad: focus en la sección al navegar con hash directo
+    window.addEventListener('hashchange', function(){
+      const id = location.hash.slice(1);
+      const el = document.getElementById(id);
+      if(el) el.setAttribute('tabindex', '-1') && el.focus();
+    });
+  </script>
+</body>
+</html>
